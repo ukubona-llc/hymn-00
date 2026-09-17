@@ -1,0 +1,177 @@
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonic Analysis: WILTSHIRE (Bar 5)</title>
+    <style>
+        body { 
+            font-family: 'Georgia', serif; 
+            background-color: #f4f1ea; 
+            color: #2c2b29; 
+            line-height: 1.7; 
+            margin: 0; 
+            padding: 40px 20px; 
+        }
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            padding: 50px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            border-radius: 4px;
+        }
+        h1 { 
+            color: #1a1a1a; 
+            font-size: 2.2em; 
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        h2 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid #e9ecef; 
+            padding-bottom: 8px; 
+            margin-top: 40px;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .score-container { 
+            text-align: center; 
+            margin: 40px 0; 
+        }
+        .score-container img { 
+            max-width: 100%; 
+            height: auto; 
+            border: 1px solid #dcdcdc; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            border-radius: 2px;
+        }
+        .score-caption {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .analysis-box { 
+            background: #fdfaf6; 
+            border-left: 5px solid #8b2c2c; 
+            padding: 25px; 
+            margin: 25px 0; 
+        }
+        .chord-progression { 
+            font-family: 'Courier New', monospace; 
+            font-size: 1.1em; 
+            background: #2c2b29; 
+            color: #f4f1ea;
+            padding: 15px; 
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .chord-progression .arrow {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            margin-top: 40px; 
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+        ul { 
+            margin-top: 10px; 
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .math { 
+            font-family: 'Times New Roman', serif; 
+            font-style: italic; 
+            font-weight: bold; 
+            color: #2c3e50;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #8b2c2c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Harmonic Analysis: WILTSHIRE</h1>
+        <div class="subtitle">"Through all the changing scenes of life" (Text: Nahum Tate & Nicholas Brady | Tune: George Smart) — <strong>Bar 5 Analysis</strong></div>
+
+        <div class="score-container">
+            <img src="ukhona/through-all.jpeg" alt="Sheet music for Through All The Changing Scenes of Life">
+            <div class="score-caption">Hymn text set to the tune WILTSHIRE in A Major (Focus on Bar 5).</div>
+        </div>
+
+        <h2>The Cadential Progression in Bar 5</h2>
+        <p>We are analyzing a beautiful, high-tension cadential passing moment occurring in <strong>Bar 5</strong> over a tonic pedal. The physical voicing at the keyboard moves as follows:</p>
+        
+        <div class="chord-progression">
+            <div><span style="color:#a8b6c4;">[Bar 5 - Chord 1 (Tension)]</span><br>LH: A2-G#2  |  RH: D3-F#3-B3</div>
+            <div style="margin: 10px 0;"><span class="arrow">==></span></div>
+            <div><span style="color:#a8b6c4;">[Bar 5 - Chord 2 (First Resolution)]</span><br>LH: A2-A3   |  RH: C#3-E3-C#4</div>
+            <div style="margin: 10px 0;"><span class="arrow">==></span></div>
+            <div><span style="color:#a8b6c4;">[Bar 5 - Chord 3 (Final Rest)]</span><br>LH: A2-E2   |  RH: C#3-E3</div>
+        </div>
+
+        <h2>Deconstructing the Identity Crisis</h2>
+        
+        <p>At first glance, one might attempt to label Chord 1 in Bar 5 as an <span class="math">Amaj7(9, 11, 13)</span> or an <span class="math">Asus(maj7)</span> due to the A bass note. However, placing the chord under a strict Berklee/gospel functional lens reveals why these labels fail:</p>
+
+        <ul>
+            <li><strong>Missing the 3rd:</strong> There is no C# present in Chord 1. Without the major 3rd, the chord lacks a foundational A Major identity.</li>
+            <li><strong>The Sus Contradiction:</strong> Calling it a "sus" chord implies that A is the root holding an active 4th (D) in place of a 3rd. But combining a major 7th (G#) and a perfect 4th (D) over an A root creates an internal dominant tritone, fundamentally contradicting the static nature of a suspension.</li>
+        </ul>
+
+        <div class="analysis-box">
+            <h3>The Tritone Shell & The True Identity</h3>
+            <p>The undisputed fingerprint of this Bar 5 passing chord lies in the interval between the inner voices: <span class="highlight">G# and D</span>. This is a tritone. In functional harmony, whenever the leading tone (G#) and the 4th degree (D) collide in the key of A, you are looking at an <strong>E7 dominant engine</strong>.</p>
+            
+            <p>By isolating this tritone shell, the entire chord resolves its identity crisis:</p>
+            <ul>
+                <li><strong>The Guide-Tone Shell (G# + D):</strong> The 3rd and 7th of an E dominant 7th chord. This tritone creates the exact harmonic gravity that demands resolution to A (G# pulls up to A; D pulls down to C#).</li>
+                <li><strong>The Upper Extensions (F# + B):</strong> The 9th and 13th of the E dominant scale, providing that rich gospel/traditional hymnal color.</li>
+                <li><strong>The Bass Note (A):</strong> An anticipating pedal point. It is completely independent of the upper functional engine.</li>
+            </ul>
+            <p>Therefore, the most accurate and elegant name for this Bar 5 passing chord is a <strong>Rootless E7(9, 11) / A</strong>. It is a fully extended dominant engine sitting over a tonic pedal, waiting to release.</p>
+        </div>
+
+        <h2>Audio Reference</h2>
+        <p>Listen to the traditional four-part voice leading and organ cadence structures of the tune WILTSHIRE to hear this Bar 5 tension and release mechanism in action:</p>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/yBkorDtz1nU?start=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+    </div>
+</body>
+</html>
+"""
+
+with open("wiltshire_analysis-v2.html", "w") as f:
+    f.write(html_content)
+
+print("[file-tag: wiltshire_analysis-v2.html]")
