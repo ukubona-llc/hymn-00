@@ -4,44 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harmonic Analysis: WILTSHIRE (Bar 5)</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%232c2b29'/%3E%3Cpolygon points='50,8 63,40 98,40 70,61 81,95 50,74 19,95 30,61 2,40 37,40' fill='none' stroke='%23e8d9a8' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
     <style>
+        /* ── Theme tokens: light defaults ───────────────────────────── */
+        :root {
+            --bg: #f4f1ea;
+            --text: #2c2b29;
+            --container-bg: #ffffff;
+            --container-shadow: rgba(0,0,0,0.06);
+            --heading-color: #1a1a1a;
+            --subtitle-color: #555;
+            --h2-color: #2c3e50;
+            --h2-border: #e9ecef;
+            --h3-color: #34495e;
+            --score-border: #dcdcdc;
+            --score-shadow: rgba(0,0,0,0.08);
+            --score-caption: #777;
+            --analysis-bg: #fdfaf6;
+            --analysis-border: #8b2c2c;
+            --chord-bg: #2c2b29;
+            --chord-text: #f4f1ea;
+            --chord-arrow: #e67e22;
+            --math-color: #2c3e50;
+            --highlight-color: #8b2c2c;
+            --video-shadow: rgba(0,0,0,0.1);
+            --hr-color: #dcdcdc;
+            --turn-prompt-bg: #eef1f4;
+            --turn-prompt-border: #2c3e50;
+            --turn-response-bg: #fdfaf6;
+            --turn-response-border: #8b2c2c;
+            --open-thread-bg: #fffdf9;
+            --open-thread-border: #8b2c2c;
+            --toolbar-icon: #2c2b29;
+            --toolbar-bg: #ffffff;
+            --toolbar-border: #dcdcdc;
+            --toolbar-shadow: rgba(0,0,0,0.12);
+            --dropdown-bg: #ffffff;
+            --dropdown-border: #e9ecef;
+            --dropdown-hover: #f4f1ea;
+            --logo-stroke: #8b2c2c;
+        }
+        /* ── Dark tokens: system preference, unless overridden ─────────── */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #1b1a17;
+                --text: #e8e3d8;
+                --container-bg: #24221e;
+                --container-shadow: rgba(0,0,0,0.45);
+                --heading-color: #f4f1ea;
+                --subtitle-color: #b0a996;
+                --h2-color: #c9a86a;
+                --h2-border: #3a372f;
+                --h3-color: #b8ab86;
+                --score-border: #3a372f;
+                --score-shadow: rgba(0,0,0,0.5);
+                --score-caption: #9a9484;
+                --analysis-bg: #2a221e;
+                --analysis-border: #c9704f;
+                --chord-bg: #0f0e0c;
+                --chord-text: #e8e3d8;
+                --chord-arrow: #e8935a;
+                --math-color: #c9a86a;
+                --highlight-color: #d98a5f;
+                --video-shadow: rgba(0,0,0,0.6);
+                --hr-color: #3a372f;
+                --turn-prompt-bg: #21252b;
+                --turn-prompt-border: #7d97b3;
+                --turn-response-bg: #2a221e;
+                --turn-response-border: #c9704f;
+                --open-thread-bg: #241f1a;
+                --open-thread-border: #c9704f;
+                --toolbar-icon: #e8e3d8;
+                --toolbar-bg: #24221e;
+                --toolbar-border: #3a372f;
+                --toolbar-shadow: rgba(0,0,0,0.5);
+                --dropdown-bg: #24221e;
+                --dropdown-border: #3a372f;
+                --dropdown-hover: #2f2b25;
+                --logo-stroke: #c9a86a;
+            }
+        }
+        /* ── Dark tokens: explicit user choice, always wins ─────────────── */
+        :root[data-theme="dark"] {
+            --bg: #1b1a17;
+            --text: #e8e3d8;
+            --container-bg: #24221e;
+            --container-shadow: rgba(0,0,0,0.45);
+            --heading-color: #f4f1ea;
+            --subtitle-color: #b0a996;
+            --h2-color: #c9a86a;
+            --h2-border: #3a372f;
+            --h3-color: #b8ab86;
+            --score-border: #3a372f;
+            --score-shadow: rgba(0,0,0,0.5);
+            --score-caption: #9a9484;
+            --analysis-bg: #2a221e;
+            --analysis-border: #c9704f;
+            --chord-bg: #0f0e0c;
+            --chord-text: #e8e3d8;
+            --chord-arrow: #e8935a;
+            --math-color: #c9a86a;
+            --highlight-color: #d98a5f;
+            --video-shadow: rgba(0,0,0,0.6);
+            --hr-color: #3a372f;
+            --turn-prompt-bg: #21252b;
+            --turn-prompt-border: #7d97b3;
+            --turn-response-bg: #2a221e;
+            --turn-response-border: #c9704f;
+            --open-thread-bg: #241f1a;
+            --open-thread-border: #c9704f;
+            --toolbar-icon: #e8e3d8;
+            --toolbar-bg: #24221e;
+            --toolbar-border: #3a372f;
+            --toolbar-shadow: rgba(0,0,0,0.5);
+            --dropdown-bg: #24221e;
+            --dropdown-border: #3a372f;
+            --dropdown-hover: #2f2b25;
+            --logo-stroke: #c9a86a;
+        }
         body { 
             font-family: 'Georgia', serif; 
-            background-color: #f4f1ea; 
-            color: #2c2b29; 
+            background-color: var(--bg); 
+            color: var(--text); 
             line-height: 1.7; 
             margin: 0; 
             padding: 40px 20px; 
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            background: #ffffff; 
+            background: var(--container-bg); 
             padding: 50px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06); 
+            box-shadow: 0 8px 24px var(--container-shadow); 
             border-radius: 4px;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease;
         }
         h1 { 
-            color: #1a1a1a; 
+            color: var(--heading-color); 
             font-size: 2.2em; 
             margin-bottom: 5px;
             text-align: center;
         }
         .subtitle {
             text-align: center;
-            color: #555;
+            color: var(--subtitle-color);
             font-style: italic;
             margin-bottom: 40px;
             font-size: 1.1em;
         }
         h2 { 
-            color: #2c3e50; 
-            border-bottom: 2px solid #e9ecef; 
+            color: var(--h2-color); 
+            border-bottom: 2px solid var(--h2-border); 
             padding-bottom: 8px; 
             margin-top: 40px;
         }
         h3 {
-            color: #34495e;
+            color: var(--h3-color);
             margin-top: 30px;
         }
         .score-container { 
@@ -51,34 +170,34 @@
         .score-container img { 
             max-width: 100%; 
             height: auto; 
-            border: 1px solid #dcdcdc; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            border: 1px solid var(--score-border); 
+            box-shadow: 0 4px 12px var(--score-shadow); 
             border-radius: 2px;
         }
         .score-caption {
             font-size: 0.9em;
-            color: #777;
+            color: var(--score-caption);
             margin-top: 10px;
             font-style: italic;
         }
         .analysis-box { 
-            background: #fdfaf6; 
-            border-left: 5px solid #8b2c2c; 
+            background: var(--analysis-bg); 
+            border-left: 5px solid var(--analysis-border); 
             padding: 25px; 
             margin: 25px 0; 
         }
         .chord-progression { 
             font-family: 'Courier New', monospace; 
             font-size: 1.1em; 
-            background: #2c2b29; 
-            color: #f4f1ea;
+            background: var(--chord-bg); 
+            color: var(--chord-text);
             padding: 15px; 
             border-radius: 4px;
             overflow-x: auto;
             margin-bottom: 20px;
         }
         .chord-progression .arrow {
-            color: #e67e22;
+            color: var(--chord-arrow);
             font-weight: bold;
         }
         .video-container { 
@@ -88,7 +207,7 @@
             overflow: hidden; 
             margin-top: 40px; 
             border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px var(--video-shadow);
         }
         .video-container iframe { 
             position: absolute; 
@@ -108,14 +227,14 @@
             font-family: 'Times New Roman', serif; 
             font-style: italic; 
             font-weight: bold; 
-            color: #2c3e50;
+            color: var(--math-color);
         }
         .highlight {
             font-weight: bold;
-            color: #8b2c2c;
+            color: var(--highlight-color);
         }
-    
-        /* ── Extension styling (added; original rules above untouched) ── */
+
+        /* ── Extension styling (turn cards etc.) ── */
         .exchange-note {
             font-size: 0.95em;
         }
@@ -132,18 +251,20 @@
             text-transform: uppercase;
             font-weight: bold;
             margin-bottom: 12px;
-            color: #8b2c2c;
+            color: var(--turn-response-border);
         }
         .turn-prompt {
-            background: #eef1f4;
-            border-left: 5px solid #2c3e50;
+            background: var(--turn-prompt-bg);
+            border-left: 5px solid var(--turn-prompt-border);
+            transition: background-color 0.25s ease;
         }
         .turn-prompt .turn-label {
-            color: #2c3e50;
+            color: var(--turn-prompt-border);
         }
         .turn-response {
-            background: #fdfaf6;
-            border-left: 5px solid #8b2c2c;
+            background: var(--turn-response-bg);
+            border-left: 5px solid var(--turn-response-border);
+            transition: background-color 0.25s ease;
         }
         .turn h3 {
             margin-top: 22px;
@@ -153,8 +274,8 @@
             margin: 0.9em 0;
         }
         .turn code {
-            background: #2c2b29;
-            color: #f4f1ea;
+            background: var(--chord-bg);
+            color: var(--chord-text);
             padding: 2px 6px;
             border-radius: 3px;
             font-size: 0.9em;
@@ -162,14 +283,181 @@
         .open-thread {
             margin: 30px 0 10px 0;
             padding: 20px 26px;
-            border: 2px dashed #8b2c2c;
+            border: 2px dashed var(--open-thread-border);
             border-radius: 6px;
-            background: #fffdf9;
+            background: var(--open-thread-bg);
+            transition: background-color 0.25s ease;
+        }
+
+        /* ── Anchor targets: offset for fixed toolbar + smooth scroll ─── */
+        html {
+            scroll-behavior: smooth;
+        }
+        a.section-anchor {
+            display: block;
+            position: relative;
+            top: -84px;
+            visibility: hidden;
+        }
+
+        /* ── Top toolbar: waffle menu + theme toggle ────────────────────── */
+        .site-toolbar {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .toolbar-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--toolbar-border);
+            background: var(--toolbar-bg);
+            box-shadow: 0 2px 10px var(--toolbar-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.15s ease;
+        }
+        .toolbar-btn:hover {
+            transform: translateY(-1px);
+        }
+        .toolbar-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--toolbar-icon);
+            fill: none;
+        }
+        .icon-moon { display: none; }
+        [data-theme="dark"] .icon-sun { display: none; }
+        [data-theme="dark"] .icon-moon { display: block; }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .icon-sun { display: none; }
+            :root:not([data-theme="light"]) .icon-moon { display: block; }
+        }
+
+        /* waffle grid icon (3x3 dots) */
+        .waffle-dots {
+            display: grid;
+            grid-template-columns: repeat(3, 4px);
+            grid-template-rows: repeat(3, 4px);
+            gap: 3px;
+        }
+        .waffle-dots span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--toolbar-icon);
+        }
+
+        .section-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            min-width: 240px;
+            background: var(--dropdown-bg);
+            border: 1px solid var(--dropdown-border);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px var(--toolbar-shadow);
+            padding: 8px;
+            display: none;
+            flex-direction: column;
+        }
+        .section-dropdown.open {
+            display: flex;
+        }
+        .section-dropdown a {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.88em;
+            font-family: 'Georgia', serif;
+        }
+        .section-dropdown a:hover {
+            background: var(--dropdown-hover);
+        }
+        .section-dropdown a .num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8em;
+            color: var(--highlight-color);
+            min-width: 1.4em;
+        }
+
+        /* ── Rotating pentagram logo ─────────────────────────────────── */
+        .logo-mark {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 6px;
+        }
+        .logo-mark svg {
+            width: 54px;
+            height: 54px;
+            animation: logo-spin 36s linear infinite;
+        }
+        .logo-mark polygon {
+            fill: none;
+            stroke: var(--logo-stroke);
+            stroke-width: 2.2;
+            stroke-linejoin: round;
+            transition: stroke 0.25s ease;
+        }
+        .logo-mark circle {
+            fill: none;
+            stroke: var(--score-border);
+            stroke-width: 1;
+            transition: stroke 0.25s ease;
+        }
+        @keyframes logo-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .logo-mark svg {
+                animation: none;
+            }
         }
     </style>
 </head>
 <body>
+    <nav class="site-toolbar">
+        <div style="position:relative;">
+            <button class="toolbar-btn" id="waffleBtn" aria-label="Jump to section" aria-haspopup="true" aria-expanded="false" type="button">
+                <div class="waffle-dots">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+            </button>
+            <div class="section-dropdown" id="sectionDropdown" role="menu">
+                <a href="#sec-score" role="menuitem"><span class="num">I</span> The Score</a>
+                <a href="#sec-cadence" role="menuitem"><span class="num">II</span> Cadential Progression, Bar 5</a>
+                <a href="#sec-identity" role="menuitem"><span class="num">III</span> Deconstructing the Identity Crisis</a>
+                <a href="#sec-tritone" role="menuitem"><span class="num">IV</span> Tritone Shell &amp; True Identity</a>
+                <a href="#sec-audio" role="menuitem"><span class="num">V</span> Audio Reference</a>
+                <a href="#sec-exchange" role="menuitem"><span class="num">VI</span> The Exchange</a>
+                <a href="#sec-open-thread" role="menuitem"><span class="num">VII</span> Open Thread</a>
+            </div>
+        </div>
+        <button class="toolbar-btn" id="themeBtn" aria-label="Toggle light and dark theme" type="button">
+            <svg class="icon-sun" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8"></path></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg>
+        </button>
+    </nav>
     <div class="container">
+        <a id="sec-score" class="section-anchor"></a>
+        <div class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46"></circle>
+                <polygon points="50,8 63,40 98,40 70,61 81,95 50,74 19,95 30,61 2,40 37,40"></polygon>
+            </svg>
+        </div>
         <h1>Harmonic Analysis: WILTSHIRE</h1>
         <div class="subtitle">"Through all the changing scenes of life" (Text: Nahum Tate & Nicholas Brady | Tune: George Smart) — <strong>Bar 5 Analysis</strong></div>
 
@@ -178,6 +466,7 @@
             <div class="score-caption">Hymn text set to the tune WILTSHIRE in A Major (Focus on Bar 5).</div>
         </div>
 
+        <a id="sec-cadence" class="section-anchor"></a>
         <h2>The Cadential Progression in Bar 5</h2>
         <p>We are analyzing a beautiful, high-tension cadential passing moment occurring in <strong>Bar 5</strong> over a tonic pedal. The physical voicing at the keyboard moves as follows:</p>
         
@@ -189,6 +478,7 @@
             <div><span style="color:#a8b6c4;">[Bar 5 - Chord 3 (Final Rest)]</span><br>LH: A2-E2   |  RH: C#3-E3</div>
         </div>
 
+        <a id="sec-identity" class="section-anchor"></a>
         <h2>Deconstructing the Identity Crisis</h2>
         
         <p>At first glance, one might attempt to label Chord 1 in Bar 5 as an <span class="math">Amaj7(9, 11, 13)</span> or an <span class="math">Asus(maj7)</span> due to the A bass note. However, placing the chord under a strict Berklee/gospel functional lens reveals why these labels fail:</p>
@@ -199,6 +489,7 @@
         </ul>
 
         <div class="analysis-box">
+            <a id="sec-tritone" class="section-anchor"></a>
             <h3>The Tritone Shell & The True Identity</h3>
             <p>The undisputed fingerprint of this Bar 5 passing chord lies in the interval between the inner voices: <span class="highlight">G# and D</span>. This is a tritone. In functional harmony, whenever the leading tone (G#) and the 4th degree (D) collide in the key of A, you are looking at an <strong>E7 dominant engine</strong>.</p>
             
@@ -211,6 +502,7 @@
             <p>Therefore, the most accurate and elegant name for this Bar 5 passing chord is a <strong>Rootless E7(9, 11) / A</strong>. It is a fully extended dominant engine sitting over a tonic pedal, waiting to release.</p>
         </div>
 
+        <a id="sec-audio" class="section-anchor"></a>
         <h2>Audio Reference</h2>
         <p>Listen to the traditional four-part voice leading and organ cadence structures of the tune WILTSHIRE to hear this Bar 5 tension and release mechanism in action:</p>
 
@@ -220,6 +512,7 @@
         
 
         <hr style="margin:50px 0 30px 0; border:none; border-top:1px solid #dcdcdc;">
+<a id="sec-exchange" class="section-anchor"></a>
 <h2 id="the-exchange-opus-5-on-bar-5-and-where-it-led">The Exchange: Opus 5 on Bar 5, and Where It Led</h2>
 <p><em>Appended, non-lossy, append-only. The exchange below is reproduced verbatim from a conversation with Claude Opus 5, in the order it occurred. Nothing in the original analysis above has been altered.</em></p>
 <div class="turn turn-prompt">
@@ -372,6 +665,7 @@ Response — Opus 5
 <p>Agreed. Left where it should be: two readings of the same structure, neither one collapsed into the other — which, given everything the last hour has argued about premature naming, is the only intellectually honest place to leave it.</p>
 <p>If you want to pick this back up, the open thread is specific: whether FGT is a thin protocol (Hayek/Smith, mutual indifference) or a relational field (Ubuntu proper, mutual constitution), and whether the answer has to be uniform across the pentad or can vary by layer — patient/kin looking Ubuntu, regulator/planner looking Hayekian. That's a real design question for the architecture, not just a philosophical flourish, whenever you're ready for it.</p>
 </div>
+<a id="sec-open-thread" class="section-anchor"></a>
 <div class="open-thread">
 <div class="turn-label" style="color:#8b2c2c;">
 Status — Open Thread
@@ -382,5 +676,62 @@ Unresolved by design: whether FGT is a thin protocol (Hayek/Smith — mutual ind
 </div>
 
     </div>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var themeBtn = document.getElementById('themeBtn');
+            var waffleBtn = document.getElementById('waffleBtn');
+            var dropdown = document.getElementById('sectionDropdown');
+
+            function getStored() {
+                try { return localStorage.getItem('wiltshire-theme'); }
+                catch (e) { return null; }
+            }
+            function setStored(v) {
+                try { localStorage.setItem('wiltshire-theme', v); }
+                catch (e) { /* storage unavailable; theme still applies this session */ }
+            }
+            function systemPrefersDark() {
+                return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+
+            var stored = getStored();
+            if (stored === 'light' || stored === 'dark') {
+                root.setAttribute('data-theme', stored);
+            }
+
+            themeBtn.addEventListener('click', function () {
+                var current = root.getAttribute('data-theme');
+                var effectiveIsDark = current ? current === 'dark' : systemPrefersDark();
+                var next = effectiveIsDark ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                setStored(next);
+            });
+
+            waffleBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = dropdown.classList.toggle('open');
+                waffleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            document.addEventListener('click', function (e) {
+                if (!dropdown.contains(e.target) && e.target !== waffleBtn) {
+                    dropdown.classList.remove('open');
+                    waffleBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    dropdown.classList.remove('open');
+                    waffleBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            dropdown.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    dropdown.classList.remove('open');
+                    waffleBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
 </body>
-</html>    
+</html>
